@@ -1,0 +1,15 @@
+[I 22:14:16.200 NotebookApp] Writing notebook server cookie secret to /home/zsun/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 22:14:16.421 NotebookApp] JupyterLab extension loaded from /home/zsun/anaconda3/lib/python3.7/site-packages/jupyterlab
+[I 22:14:16.421 NotebookApp] JupyterLab application directory is /home/zsun/anaconda3/share/jupyter/lab
+[I 22:14:16.422 NotebookApp] Serving notebooks from local directory: /home/zsun/Forme/Real-ESRGAN-master-2
+[I 22:14:16.422 NotebookApp] The Jupyter Notebook is running at:
+[I 22:14:16.422 NotebookApp] http://localhost:8888/?token=768bb9eacdc6911311fa3b72a089b660287bb39e830bb458
+[I 22:14:16.423 NotebookApp]  or http://127.0.0.1:8888/?token=768bb9eacdc6911311fa3b72a089b660287bb39e830bb458
+[I 22:14:16.423 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 22:14:16.425 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/zsun/.local/share/jupyter/runtime/nbserver-4015502-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=768bb9eacdc6911311fa3b72a089b660287bb39e830bb458
+     or http://127.0.0.1:8888/?token=768bb9eacdc6911311fa3b72a089b660287bb39e830bb458

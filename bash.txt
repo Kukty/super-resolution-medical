@@ -1,0 +1,16 @@
+python scripts/generate_meta_info_pairdata.py --input /data/public/PATH-DT-MSU/SR_patches_10x_20x_40x/WSS1_train/20x /data/public/PATH-DT-MSU/SR_patches_10x_20x_40x/WSS1_train/10x --meta_info datasets/meta_info/meta_info_MSR_sub_pair.txt
+wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth -P experiments/pretrained_models
+wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.3/RealESRGAN_x2plus_netD.pth -P experiments/pretrained_models
+python realesrgan/train.py -opt options/finetune_realesrgan_x2plus_pairdata.yml --auto_resume
+
+Fintune 4x
+python scripts/generate_meta_info_pairdata.py --input /data/public/PATH-DT-MSU/SR_patches_10x_20x_40x/WSS1_train/40x /data/public/PATH-DT-MSU/SR_patches_10x_20x_40x/WSS1_train/10x --meta_info datasets/meta_info/meta_info_MSR_sub_pair_4x.txt
+python realesrgan/train.py -opt options/finetune_realesrgan_x4plus_pairdata.yml --auto_resume
+
+CUDA_VISIBLE_DEVICES=0,1 \
+python -m torch.distributed.launch --nproc_per_node=2 --master_port=4321 realesrgan/train.py -opt options/finetune_realesrgan_x4plus_pairdata.yml --launcher pytorch --auto_resume
+
+Launch:
+python inference_realesrgan.py -n net_g_85000 -i datasets/multiscale --outscale 4 -o res_after_ft
+
+python inference_realesrgan.py -n net_g_85000 -i /data/public/PATH-DT-MSU/SR_patches_10x_20x_40x/WSS1_test/10x --outscale 4 -o res_after_ft_WSS1_test
